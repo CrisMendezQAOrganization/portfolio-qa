@@ -1,0 +1,8 @@
+CREATE TABLE formcrismendez (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100),
+  email VARCHAR(100) NOT NULL UNIQUE,
+  subject VARCHAR(50) NOT NULL,
+  age INTEGER CHECK (age >= 18),
+  message VARCHAR(500) NOT NULL
+);
