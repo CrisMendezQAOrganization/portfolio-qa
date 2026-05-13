@@ -58,7 +58,7 @@
 
 <h1>Documentación de la API REST - Supabase</h1>
 
-<form id="form" onsubmit="return false;">
+<form id="form" onsubmit="return false;" style="display: none;">
   <label for="tableName">Nombre de la tabla:</label>
   <input type="text" id="tableName" placeholder="clientes" required="">
 
@@ -72,7 +72,60 @@
 </form>
 
 <!-- Aquí pondremos la documentación generada -->
-<div id="docs" style="margin-top:2rem;"></div>
+<div id="docs" style="margin-top:2rem;">
+        <h2>Autenticación</h2>
+    <p>Todos los endpoints requieren la siguiente autentificacion: Auth Type: API KEY</p>
+    <pre>{
+  "Key": "apikey",
+  "Value": "API KEY DE TU PROYECTO",
+  "Position": "Headers"
+}</pre>
+    <p>El <code>Key</code> lo obtienes desde Supabase en tu proyecto &gt; Settings &gt; API Keys.</p>
+  
+    <h2>GET - formcrismendez - Obtener todos </h2>
+    <p><span class="method GET">GET</span> <code>https://iwdierxmgildaqzycppj.supabase.co/rest/v1/formcrismendez</code></p>
+    <p>Devuelve todos los registros de la tabla <code>formcrismendez</code>.</p>
+
+    <h2>GET - formcrismendez - Filtrar por campos</h2>
+    <p><span class="method GET">GET</span> <code>https://iwdierxmgildaqzycppj.supabase.co/rest/v1/formcrismendez?campo=eq.valor&amp;campo2=eq.valor2</code></p>
+    <p>Filtra los registros donde campo sea igual a <code>&lt;valor&gt;</code>.</p>
+    <p>Campos disponibles para filtrar:</p>
+    <ul>
+      <li>id</li><li>name</li><li>email</li><li>subject</li><li>age</li><li>message</li>
+    </ul>
+
+    <h2>POST - formcrismendez - Crear nuevo</h2>
+    <p><span class="method POST">POST</span> <code>https://iwdierxmgildaqzycppj.supabase.co/rest/v1/formcrismendez</code></p>
+    <p>Crea un nuevo registro. Campos disponibles:</p>
+    <ul>
+      <li><code>name</code> - opcional</li><li><code>email</code> -  (obligatorio)</li><li><code>subject</code> -  (obligatorio)</li><li><code>age</code> - opcional</li><li><code>message</code> -  (obligatorio)</li>
+    </ul>
+    <p><strong>Body de ejemplo:</strong></p>
+    <pre>{
+  "name": "",
+  "email": "",
+  "subject": "",
+  "age": "",
+  "message": ""
+}</pre>
+
+    <h2>PATCH - formcrismendez - Editar </h2>
+    <p><span class="method PATCH">PATCH</span> <code>https://iwdierxmgildaqzycppj.supabase.co/rest/v1/formcrismendez?id=eq.&lt;id&gt;</code></p>
+    <p>Actualiza el registro con el ID especificado. Puedes enviar uno o varios campos en el body:</p>
+    <pre>{
+  "name": "<nuevo string="">",
+  "email": "<nuevo string="">",
+  "subject": "<nuevo string="">",
+  "age": "<nuevo string="">",
+  "message": "<nuevo string="">"
+}</nuevo></nuevo></nuevo></nuevo></nuevo></pre>
+
+    <h2>DELETE - formcrismendez - Eliminar </h2>
+    <p><span class="method DELETE">DELETE</span> <code>https://iwdierxmgildaqzycppj.supabase.co/rest/v1/formcrismendez?id=eq.&lt;id&gt;</code></p>
+    <p>Elimina el registro con el ID especificado.</p>
+
+
+  </div>
 
 <script>
 function generate() {
