@@ -26,13 +26,13 @@ jobs:
 
       - name: Download Postman collection using Postman API
         run: |
-          curl --location --request GET "https://api.getpostman.com/collections/33801345-181c803c-a263-4988-9141-4482d833eb4c" \
+          curl --location --request GET "https://api.getpostman.com/collections/55034639-3fb460e1-00f7-4e9e-a929-0f759929b5e3" \
           --header "X-Api-Key: ${{ secrets.POSTMAN_API_KEY }}" \
           --output collection.json
 
       - name: Download Postman environment using Postman API
         run: |
-          curl --location --request GET "https://api.getpostman.com/environments/33801345-e08ef3e0-e06f-4b5c-936b-179df25cea75" \
+          curl --location --request GET "https://api.getpostman.com/environments/55034639-54df4524-d241-4599-819d-603213414a93" \
           --header "X-Api-Key: ${{ secrets.POSTMAN_API_KEY }}" \
           --output environment.json
 
@@ -53,7 +53,15 @@ jobs:
           path: report.html
 
       - name: Upload Postman collection as artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: postman-collection
           path: collection.json
+
+      - name: Upload Postman environment as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: postman-environment
+          path: environment.json
